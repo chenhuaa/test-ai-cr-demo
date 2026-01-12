@@ -1,12 +1,19 @@
 import { RouteRecordRaw } from 'vue-router';
+import resize from '@/views/pages/resize.vue'
+import flight from '@/views/pages/flight.vue'
+
 
 export const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    redirect: '/index',
+    path: '/resize',
+    name: 'resize',
+    component: resize,
+    children: []
   },
   {
-    path: '/index',
-    component: () => import('@/views/pages/index.vue'),
-  },
+    path: '/flight',
+    name: 'flight',
+    component: flight,
+    children: []
+  }
 ];

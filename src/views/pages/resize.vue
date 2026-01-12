@@ -15,7 +15,7 @@ import { ref, reactive, onMounted, computed } from 'vue';
 const resizableDiv = ref(null);
 const startPos = reactive({ x: 0, y: 0 });
 const divSize = reactive({ width: 200, height: 200 });
-const divPos = reactive({ left: 100, top: 100 });
+const divPos = reactive({ left: 300, top: 100 });
 
 const divStyle = computed(() => ({
   width: `${divSize.width}px`,
