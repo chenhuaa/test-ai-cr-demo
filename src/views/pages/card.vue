@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="inner" style="--quantity: 10;">
+    <div class="inner" :style="{'--quantity': data.length}">
       <div class="card" v-for="(val, key) in data" :key="key" :style="{'--index': key, '--color-card': val}">
         <div class="img"></div>
       </div>
@@ -14,7 +14,7 @@ const data = ref([
   '252, 208, 142', '252, 142, 142', '252, 142, 239', '204, 142, 252', '142, 202, 252'
 ])
 </script>
-<style>
+<style scoped>
   .wrapper {
     width: 600px;
     height: 400px;
@@ -42,6 +42,14 @@ const data = ref([
     transform: perspective(var(--perspective));
     animation: rotating 20s linear infinite; /* */
   }
+
+  /* 用户明确要求减少动画 */
+  @media (prefers-reduced-motion: reduce) {
+    .inner {
+      animation: none;
+    }
+  }
+
   @keyframes rotating {
     from {
       transform: perspective(var(--perspective)) rotateX(var(--rotateX))
@@ -75,5 +83,4 @@ const data = ref([
         rgba(var(--color-card), 0.9) 100%
       );
   }
-  </style>
-  
+</style>
